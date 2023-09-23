@@ -1,0 +1,23 @@
+name: Clean
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "37 17 9 * *"
+
+jobs:
+  setup:
+    env:
+      FAKE_HASH: "Automated deployment @ $(date '+%Y-%m-%d %H:%M:%S') Asia/Shanghai"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: 初始化环境 & 拉取项目
+      run: |
+        rm -rf *
+        git add .
+        git commit -m "${{ env.FAKE_HASH }}" 
+        git push -f
+        mkdir .github/workflows
+        cd .github/workflows
+        wget 
