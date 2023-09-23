@@ -20,4 +20,5 @@ jobs:
         git push -f
         mkdir .github/workflows
         cd .github/workflows
-        wget 
+        wget https://github.com/cym31153/epic_basic/raw/main/clean.yml
+        wget https://github.com/cym31153/epic_basic/raw/main/main.yml
